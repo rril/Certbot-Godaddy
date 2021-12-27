@@ -8,12 +8,14 @@ Note that these scripts require storing the credentials to the GoDaddy API on yo
 - Enter you [GoDaddy API](https://developer.godaddy.com/keys) and domain information in the api-settings.sh file
 - [OPTIONAL] Edit the certbot-renew-post-hook.sh script to execute actions after renewing a certificate (e.g. nginx reload)
 - Request a new certificate by calling the certbot-godaddy-request.sh script
-	- ```/path/to/certbot-godaddy-request.sh```
+	- ```/path/to/certbot-godaddy-request.sh example```[^1]
 - Create a daily cronjob to automatically renew your certificate:
-	- ```0 4 * * * /path/to/certbot-godaddy-renew.sh```
+	- ```0 4 * * * /path/to/certbot-godaddy-renew.sh example```[^1]
 - Modify the permissions of the api-settings.sh file so only the user running the cronjob is able to read it
-	- ```chown root:root /path/to/api-settings.sh```
-	- ```chmod 600 /path/to/api-settings.sh```
+	- ```chown root:root /path/to/api-settings.sh example```[^1]
+	- ```chmod 600 /path/to/api-settings.sh example```[^1]
 
 
 Your new certificate should be stored in /etc/letsencrypt/live/[DOMAIN]/
+
+[^1]: _example_ This is the key set in the api-settings.sh file
