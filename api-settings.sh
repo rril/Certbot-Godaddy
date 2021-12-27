@@ -6,6 +6,7 @@
 # This software may be modified and distributed under the terms
 # of the BSD license.  See the LICENSE file for details.
 
+GODADDY_URL="https://api.godaddy.com/"
 case "$KEY" in
         example)
             ############################################################
@@ -18,12 +19,11 @@ case "$KEY" in
             # GoDaddy API Credentials
             GODADDY_API_KEY=""
             GODADDY_API_SECRET=""
-            GODADDY_URL="https://api.godaddy.com/"
             ############################################################
             ;;
 
         *)
-            echo $"Undefined key." >&2
+            echo "Undefined key." >&2
             exit 1
 
 esac
