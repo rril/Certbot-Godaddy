@@ -6,14 +6,15 @@
 # This software may be modified and distributed under the terms
 # of the BSD license.  See the LICENSE file for details.
 
-source $(dirname $(readlink -f $0))/api-settings.sh
+SCRIPTDIR=$(dirname $(readlink -f $0))
+source $SCRIPTDIR/api-settings.sh
 
 DNS_REC_TYPE=TXT
 DNS_REC_NAME="_acme-challenge"
 DNS_REC_DATA="$CERTBOT_VALIDATION"
 
 echo Replacing ${DNS_REC_TYPE} records for ${DNS_REC_NAME}.${CERTBOT_DOMAIN} with 'park' values
-curl    -i \
+curl    -s \
         -X PUT \
         "${GODADDY_URL}/v1/domains/${CERTBOT_DOMAIN}/records/${DNS_REC_TYPE}/${DNS_REC_NAME}" \
         -H "accept: application/json" \
