@@ -16,9 +16,8 @@ Note that these scripts require storing the credentials to the GoDaddy API on yo
 - Create a daily cronjob to automatically renew your certificate:
 	- ```0 4 * * * /path/to/certbot-godaddy-renew.sh example```[^1]
 - Modify the permissions of the api-settings.sh file so only the user running the cronjob is able to read it
-	- ```chown root:root /path/to/api-settings.sh example```[^1]
-	- ```chmod 600 /path/to/api-settings.sh example```[^1]
-
+	- ```chown root:root /path/to/api-settings.sh```
+	- ```chmod 600 /path/to/api-settings.sh```
 
 Your new certificate should be stored in /etc/letsencrypt/live/[DOMAIN]/
 
